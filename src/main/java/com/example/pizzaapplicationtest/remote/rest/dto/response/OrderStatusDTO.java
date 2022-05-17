@@ -1,17 +1,17 @@
 package com.example.pizzaapplicationtest.remote.rest.dto.response;
 
 import com.example.pizzaapplicationtest.domain.model.StatusType;
-import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.boot.jackson.JsonComponent;
 
 import java.util.Date;
 
 public class OrderStatusDTO {
     private StatusType status;
-    @DateTimeFormat(pattern = "dd-mm-YYYY")
+    @JsonFormat(pattern = "dd-mm-YYYY")
     private Date createdAt;
-    @DateTimeFormat(pattern = "dd-mm-YYYY")
+    @JsonFormat(pattern = "dd-mm-YYYY")
     private Date updatedAt;
-    @DateTimeFormat(pattern = "dd-mm-YYYY")
+    @JsonFormat(pattern = "dd-mm-YYYY")
     private Date expectedAt;
 
     public OrderStatusDTO() {
