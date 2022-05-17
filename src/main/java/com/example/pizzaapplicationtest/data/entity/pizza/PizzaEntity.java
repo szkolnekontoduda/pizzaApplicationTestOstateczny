@@ -1,5 +1,10 @@
 package com.example.pizzaapplicationtest.data.entity.pizza;
 
+
+
+import com.example.pizzaapplicationtest.data.entity.size.SizeEntity;
+
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -10,10 +15,11 @@ public class PizzaEntity {
     @Column(name="pizza_id")
     private Integer pizzaId;
     @Column(name="pizza_name")
-    private String pizzaName();
-    @OneToMany()
-    @Column(name="pizza_sizes")
-    private Set<PizzaEntity> pizzaSizes;
+    private String pizzaName;
+    @OneToMany
+    @JoinColumn(name="size_id", insertable = false, updatable = false)
+    private Set<SizeEntity> pizzaSizes;
+
 
     public Integer getPizzaId() {
         return pizzaId;
@@ -23,11 +29,11 @@ public class PizzaEntity {
         this.pizzaId = pizzaId;
     }
 
-    public Set<PizzaEntity> getPizzaSizes() {
+    public Set<SizeEntity> getPizzaSizes() {
         return pizzaSizes;
     }
 
-    public void setPizzaSizes(Set<PizzaEntity> pizzaSizes) {
+    public void setPizzaSizes(Set<SizeEntity> pizzaSizes) {
         this.pizzaSizes = pizzaSizes;
     }
 }

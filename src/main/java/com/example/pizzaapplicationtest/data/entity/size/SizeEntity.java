@@ -3,6 +3,8 @@ package com.example.pizzaapplicationtest.data.entity.size;
 import com.example.pizzaapplicationtest.data.entity.pizza.PizzaEntity;
 
 import java.math.BigDecimal;
+
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -16,14 +18,13 @@ public class SizeEntity {
     private String sizeName;
     @Column(name="size_price")
     private BigDecimal price;
-    @ManyToOne()
     @Column(name="pizza_id")
     private Integer pizzaId;
+    @ManyToOne
+    @JoinColumn(name="pizza_id", insertable = false, updatable = false)
+    private PizzaEntity pizza;
 
 
-    public SizeEntity(){
-
-    }
 
     public Integer getSizeId() {
         return sizeId;
